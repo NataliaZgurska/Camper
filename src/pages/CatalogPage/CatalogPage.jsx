@@ -1,14 +1,22 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import Filters from '../../components/Filters/Filters.jsx';
+import Camper from '../../components/Camper/Camper.jsx';
 import css from './CatalogPage.module.css';
 
 const CatalogPage = () => {
   return (
-    <div className={css.catalogFilterContainer}>
-      <Filters />
+    <>
+      <Helmet>
+        <title>CamperCatalog</title>
+      </Helmet>
 
-      <div>Catalog</div>
-    </div>
+      <div className={css.catalogFilterContainer}>
+        <Filters />
+
+        <Camper />
+      </div>
+    </>
   );
 };
 
