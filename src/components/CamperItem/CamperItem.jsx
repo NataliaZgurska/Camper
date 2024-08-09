@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { LuEuro } from 'react-icons/lu';
 import BoxOption from '../BoxOption/BoxOption.jsx';
 import css from './CamperItem.module.css';
+import CamperModalAdd from '../CamperModalAdd/CamperModalAdd.jsx';
 
 const CamperItem = ({ camper }) => {
   const {
@@ -25,10 +26,20 @@ const CamperItem = ({ camper }) => {
     reviews,
   } = camper;
 
+  // *****модальне вікно додаткової інформації****
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+  // *******
+
   return (
     <div className={css.camperContainer}>
       <div className={css.imgContainer}>
-        <img src={gallery[0]} alt="Example" />
+        <img src={gallery[0]} alt="camper photo" />
       </div>
 
       <div className={css.camperContext}>
@@ -56,7 +67,15 @@ const CamperItem = ({ camper }) => {
           <BoxOption camper={camper} />
         </div>
 
-        <button className="btn">Show more</button>
+        <button type="button" className="btn" onClick={openModal}>
+          Show more
+        </button>
+
+        <CamperModalAdd
+          isOpen={modalIsOpen}
+          closeModal={closeModal}
+          camper={camper}
+        />
       </div>
     </div>
   );

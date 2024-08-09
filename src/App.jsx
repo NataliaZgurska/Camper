@@ -1,9 +1,13 @@
 import { Route, Routes } from 'react-router-dom';
+import Modal from 'react-modal';
+
 import Layout from './components/Layout/Layout.jsx';
 import CatalogPage from './pages/CatalogPage/CatalogPage.jsx';
 import FavoritesPage from './pages/FavoritesPage/FavoritesPage.jsx';
 import HomePage from './pages/HomePage/HomePage.jsx';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage.jsx';
+
+Modal.setAppElement('#root');
 
 function App() {
   return (

@@ -94,6 +94,11 @@ input:focus {
   color: gray;
 } */
 
+.iconOption {
+  stroke: #101828;
+  fill: none;
+}
+
 /********* кнопка *********/
 .btn {
   /* width: 200px;
