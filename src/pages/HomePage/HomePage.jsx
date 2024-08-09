@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { getAdverts } from '../../services/api';
-import CamperItem from '../../components/CamperItem.jsx';
+import CamperElement from '../../components/CamperElement.jsx';
 import CamperFavorite from '../../components/CamperFavorite.jsx';
+import css from './HomePage.module.css';
 
 const HomePage = () => {
   const [campers, setCampers] = useState(null);
+  const [visebleCount, setVisebleCount] = useState(4);
 
   const [favorites, setFavorites] = useState(() => {
     const stringifiedFavorites = localStorage.getItem('favorites');
@@ -12,8 +14,6 @@ const HomePage = () => {
     const parseFavorites = JSON.parse(stringifiedFavorites);
     return parseFavorites;
   });
-
-  const [visebleCount, setVisebleCount] = useState(4);
 
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -52,24 +52,34 @@ const HomePage = () => {
   }, [favorites]);
 
   return (
-    <div>
+    <div className={css.homePageContainer}>
+      <ul>
+        {Array.isArray(campers) &&
+          campers.map(item => {
+            return (
+              <li key={item._id}>
+                adults: {item.adults}, transmission: {item.transmission},
+                engine: {item.engine}, kitchen: {item.details.kitchen}, beds:{' '}
+                {item.details.beds}, AC: {item.details.airConditioner}
+              </li>
+            );
+          })}
+      </ul>
       <ul>
         {Array.isArray(campers) &&
           campers.slice(0, visebleCount).map(item => {
             return (
               <li key={item._id}>
-                <CamperItem camper={item} addFavorites={toggleFavorite} />
+                <CamperElement camper={item} addFavorites={toggleFavorite} />
               </li>
             );
           })}
       </ul>
-
       {Array.isArray(campers) && visebleCount < campers.length && (
         <button className="btn" type="button" onClick={handleloadMore}>
           Load more
         </button>
       )}
-
       <h2>Favorites</h2>
       <CamperFavorite favArray={favorites} />
     </div>

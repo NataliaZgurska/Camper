@@ -1,0 +1,14 @@
+/**************************/
+.itemContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid blue;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+/**************************/
