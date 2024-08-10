@@ -39,7 +39,7 @@ const CamperItem = ({ camper }) => {
   return (
     <div className={css.camperContainer}>
       <div className={css.imgContainer}>
-        <img src={gallery[0]} alt="camper photo" />
+        <img src={gallery[0]} alt="camper photo" width={290} />
       </div>
 
       <div className={css.camperContext}>
@@ -64,7 +64,7 @@ const CamperItem = ({ camper }) => {
         <p className={css.additionalInf}>{description}</p>
 
         <div className={css.optionsInf}>
-          <BoxOption camper={camper} />
+          <BoxOption camper={camper} isModalOpen={modalIsOpen} />
         </div>
 
         <button type="button" className="btn" onClick={openModal}>

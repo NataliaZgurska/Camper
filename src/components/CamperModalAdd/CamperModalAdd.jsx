@@ -5,7 +5,7 @@ import CamperModal from '../CamperModal/CamperModal.jsx';
 const CamperModalAdd = ({ isOpen, closeModal, camper }) => {
   return (
     <ModalComponent isOpen={isOpen} closeModal={closeModal}>
-      <CamperModal camper={camper} />
+      <CamperModal camper={camper} isOpen={isOpen} />
     </ModalComponent>
   );
 };

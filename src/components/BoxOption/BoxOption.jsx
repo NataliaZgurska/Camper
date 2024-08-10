@@ -2,7 +2,7 @@ import React from 'react';
 import sprite from '../../assets/icons/icons.svg';
 import css from './BoxOption.module.css';
 
-const BoxOption = ({ camper }) => {
+const BoxOption = ({ camper, isModalOpen }) => {
   const { adults, transmission, engine, details } = camper;
 
   return (
@@ -40,12 +40,49 @@ const BoxOption = ({ camper }) => {
           </svg>
           <p>{details.beds} beds</p>
         </li>
-        {details.airConditioner > 0 && (
+
+        {details.AC > 0 && (
           <li className={css.boxOption}>
             <svg className="iconOption" width="28" height="24">
               <use href={`${sprite}#icon-ac`} />
             </svg>
             <p>AC</p>
+          </li>
+        )}
+
+        {isModalOpen && details.airConditioner > 0 && (
+          <li className={css.boxOption}>
+            <svg className="iconOption" width="20" height="20">
+              <use href={`${sprite}#icon-aircond`} />
+            </svg>
+            <p>{details.airConditioner} air conditioner</p>
+          </li>
+        )}
+
+        {isModalOpen && details.CD > 0 && (
+          <li className={css.boxOption}>
+            <svg className="iconOption" width="20" height="20">
+              <use href={`${sprite}#icon-cd`} />
+            </svg>
+            <p> CD</p>
+          </li>
+        )}
+
+        {isModalOpen && details.radio > 0 && (
+          <li className={css.boxOption}>
+            <svg className="iconOption" width="20" height="20">
+              <use href={`${sprite}#icon-radio`} />
+            </svg>
+            <p> radio</p>
+          </li>
+        )}
+
+        {isModalOpen && details.hob > 0 && (
+          <li className={css.boxOption}>
+            <svg className="iconOption" width="20" height="20">
+              <use href={`${sprite}#icon-hob`} />
+            </svg>
+            <p>{details.hob} hob</p>
           </li>
         )}
       </ul>

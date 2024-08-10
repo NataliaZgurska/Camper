@@ -1,0 +1,67 @@
+.featureFormContainer {
+  width: 902px;
+  height: 532px;
+
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+
+.featuresContainer {
+  width: 430px;
+  height: 530px;
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+
+.featuresOptions {
+  width: 430px;
+  height: 200px;
+}
+
+.featuresDetails {
+  width: 430px;
+  height: 286px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.detailsTitle {
+  width: 430px;
+  height: 48px;
+  border-bottom: 1px solid gray;
+
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: #101828;
+}
+
+.detailsInfoWrap {
+  width: 430px;
+  height: 214px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.detailsInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/*********** Форма *******************/
+/* .formContainer {
+  border: 1px solid rgba(16, 24, 40, 0.2);
+  border-radius: 10px;
+  padding: 24px;
+  width: 448px;
+  height: 532px;
+
+  background-color: aqua;
+} */

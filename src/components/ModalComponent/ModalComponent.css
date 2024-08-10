@@ -23,6 +23,8 @@
   height: 720px;
   background-color: #fff;
 
+  overflow-y: scroll;
+
   position: relative;
 }
 

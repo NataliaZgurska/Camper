@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { LuEuro } from 'react-icons/lu';
 import style from './CamperModal.module.css';
 import css from '../CamperItem/CamperItem.module.css';
+import CamperFeatures from '../CamperFeatures/CamperFeatures.jsx';
+import CamperReviews from '../CamperReviews/CamperReviews.jsx';
 
-const CamperModal = ({ camper }) => {
+const CamperModal = ({ camper, isOpen }) => {
   const {
     name,
     price,
@@ -24,6 +26,8 @@ const CamperModal = ({ camper }) => {
     gallery,
     reviews,
   } = camper;
+
+  const [activeComponent, setActiveComponent] = useState('');
 
   return (
     <div className={style.modalContainer}>
@@ -59,10 +63,28 @@ const CamperModal = ({ camper }) => {
 
       <div className={style.modalDescriptionFeaturesReviews}>
         <p className={style.modalDescription}>{description}</p>
+
         <div className={style.modalFeaturesReviews}>
-          <h3>Features</h3>
-          <h3>Reviews</h3>
+          <button
+            className={style.modalFeaturesReviewsLink}
+            onClick={() => setActiveComponent('features')}
+          >
+            Features
+          </button>
+          <button
+            className={style.modalFeaturesReviewsLink}
+            onClick={() => setActiveComponent('reviews')}
+          >
+            Reviews
+          </button>
         </div>
+      </div>
+
+      <div>
+        {activeComponent === 'features' && (
+          <CamperFeatures camper={camper} isOpen={isOpen} />
+        )}
+        {activeComponent === 'reviews' && <CamperReviews camper={camper} />}
       </div>
     </div>
   );
