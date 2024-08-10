@@ -77,7 +77,7 @@
 }
 
 .rating::before {
-  content: url('../../assets/img/star.jpg');
+  content: url('../../assets/img/staryellow.png');
   margin-right: 4px;
 }
 
