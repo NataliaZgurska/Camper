@@ -49,3 +49,20 @@
   color: rgba(16, 24, 40, 0.6);
   background-color: #f7f7f7;
 }
+
+.formTexrarea {
+  border: none;
+  border-radius: 10px;
+  padding: 18px;
+  width: 400px;
+  height: 114px;
+}
+
+.formInput:checked,
+.formInput:hover,
+.formInput:focus .formTexrarea:checked,
+.formTexrarea:hover,
+.formTexrarea:focus {
+  outline: none;
+  border: 1px solid rgba(16, 24, 40, 0.6);
+}

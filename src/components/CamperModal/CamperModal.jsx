@@ -3,7 +3,7 @@ import { LuEuro } from 'react-icons/lu';
 import style from './CamperModal.module.css';
 import css from '../CamperItem/CamperItem.module.css';
 import CamperFeatures from '../CamperFeatures/CamperFeatures.jsx';
-import CamperReviews from '../CamperReviews/CamperReviews.jsx';
+import CamperReviewsList from '../CamperReviewsList/CamperReviewsList.jsx';
 
 const CamperModal = ({ camper, isOpen }) => {
   const {
@@ -84,7 +84,7 @@ const CamperModal = ({ camper, isOpen }) => {
         {activeComponent === 'features' && (
           <CamperFeatures camper={camper} isOpen={isOpen} />
         )}
-        {activeComponent === 'reviews' && <CamperReviews camper={camper} />}
+        {activeComponent === 'reviews' && <CamperReviewsList camper={camper} />}
       </div>
     </div>
   );

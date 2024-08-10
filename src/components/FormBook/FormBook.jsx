@@ -50,7 +50,7 @@ const FormBook = () => {
           {...register('comment')}
           placeholder="Comment"
           rows={10}
-          className={css.formInput}
+          className={css.formTexrarea}
         ></textarea>
 
         <button type="submit" className="btn">
